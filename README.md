@@ -34,12 +34,15 @@ i will update it as frequently as a very busy overachieving high school senior c
 > 
 > "Retardation is now the norm."
 
-## technical stuff 
-
+## technical stuff
 - base model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
 - finetuning: LoRA via HuggingFace PEFT + TRL
 - epochs: 6
 - hardware: Google Colab T4 GPU (free tier, i am an unemployed high schooler)
+- dataset: ~200 manually collected tweets (80 solo, 120 reply pairs)
+- trainable parameters: 2,252,800 out of 1.1B (0.2%!!!! I freaking love LoRA )
+- training loss: 3.45 → 2.59 over 6 epochs
+- training time: ~83 seconds (yeah .)
 
 ## model
 
