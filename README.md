@@ -10,7 +10,9 @@ when i say manually curated, i am NOT kidding. i literally sat there and went th
 
 fair warning: this model is very small and very bad. it will occasionally say something great and then immediately follow it up with something nonsensical
 
-i will update it as frequently as a very busy overachieving high school senior can. i understand this is really shitty — i am kinda sorta on a time crunch and did not gather as much data as i should have. however, i really enjoyed working on this and will try to make 1-2-3 updates a month depending on how much time i have. so, this will be less shitty. lots of love lol
+i will update it as frequently as a very busy overachieving high school senior can. i understand this is really shitty — i am kinda sorta on a time crunch and did not gather as much data as i should have. however, i really enjoyed working on this and will try to make 1-2-3 updates a month depending on how much time i have. so, this will be less shitty
+
+i also wrote a whole thing about this [here] — what the landling is, why i made it, everything that changed in v1 and why, and how to actually use him yourself. link dropping soon!
 
 ## example outputs
 
@@ -18,31 +20,48 @@ i will update it as frequently as a very busy overachieving high school senior c
 > 
 > "God is about to judge the world a lot worse than he did last time."
 
-> Why do you post so much about Jews?
+> What do you think about AI alignment?
 > 
-> "Because it's a conspiracy theory that has no empirical support."
+> "AI Alignment (AA) is a misnomer. It's not an objective goal, and it doesn't refer to any particular technology or social system that needs aligning with respect to human values -- rather, AA refers only to the moral character of those who pursue such goals as themselves."
 
-> What happens after the singularity?
+> The singularity is
 > 
-> "Silly you."
+> "The singularity is finally happening. You can either be part of it, or watch from the sidelines."
 
-> Do you trust the plan?
-> 
->"Sure, but I don't believe in it."
+> Pancakes or Waffles?
+>
+> "Waffles. 'Cause you'll only put pancakes in the trash if it sucks, and this thing just sucked."
 
-> Retardation is
+(i asked him this 15 times. he said waffles all 15 times. the man loves his waffles lol)
+
+> Do you believe in God? 
 > 
-> "Retardation is now the norm."
+> "Of course, but I don't think he cares."
 
 ## technical stuff
+
 - base model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
 - finetuning: LoRA via HuggingFace PEFT + TRL
-- epochs: 6
+- epochs: 7
 - hardware: Google Colab T4 GPU (free tier, i am an unemployed high schooler)
-- dataset: ~200 manually collected tweets (80 solo, 120 reply pairs)
-- trainable parameters: 2,252,800 out of 1.1B (0.2%!!!! I freaking love LoRA )
-- training loss: 3.45 → 2.59 over 6 epochs
-- training time: ~83 seconds (yeah .)
+- dataset: 298 examples total (90 solo tweets, 138 reply pairs, 70 threaded conversation turns)
+- trainable parameters: 2,252,800 out of 1.1B (0.2%!!!! I freaking love LoRA)
+- training loss: 1.21 (down from 2.59 in v1!!)
+- training time: ~754 seconds (~12.5 minutes. yeah it went up lol. more data will do that)
+
+## changelog
+
+### v1 (current)
+- **added a third data category**: threaded conversations (longco). instead of just solo tweets and simple reply pairs, the model now trains on full multi-turn threads formatted cumulatively. each of Land's replies in a thread becomes its own training example with all prior context included. more signal, better conversational coherence
+- **fixed a critical silent bug**: the solo tweet CSV was being read with a wrong column assignment, causing 89 out of 90 tweets to be silently dropped. the model was training on literally 1 solo tweet this whole time. this is very embarrassing and also explains a lot
+- **dataset grew from ~200 to 298 examples** as a result of both the bug fix and the new data category
+- **training loss dropped from 2.59 → 1.21** (huge!!!!)
+- **epochs tuned to 7**: found through trial and error that 6 underfit and 8+ caused the model to start speaking in a cursed Italian/Spanish/Latin hybrid that doesn't exist in any of those languages. 7 is the sweet spot
+- **generation parameters tightened**: temperature 0.7 → 0.6, added top_p=0.9, repetition penalty 1.3 → 1.4
+- **added interactive chat loop** for multi-turn conversations with the Landling
+
+### v0
+- initial release. he spoke! but he spoke in tongues. great, but could've been better
 
 ## model
 
