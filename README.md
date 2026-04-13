@@ -46,7 +46,7 @@ i also wrote a whole thing about this [here](https://open.substack.com/pub/24316
 - hardware: Google Colab T4 GPU (free tier, i am an unemployed high schooler)
 - dataset: 298 examples total (90 solo tweets, 138 reply pairs, 70 threaded conversation turns)
 - trainable parameters: 2,252,800 out of 1.1B (0.2%!!!! I freaking love LoRA)
-- training loss: 1.21 (down from 2.59 in v1!!)
+- training loss: 1.21 (down from 2.59 in v0!!)
 - training time: ~754 seconds (~12.5 minutes. yeah it went up lol. more data will do that)
 
 ## changelog
