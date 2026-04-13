@@ -12,7 +12,7 @@ fair warning: this model is very small and very bad. it will occasionally say so
 
 i will update it as frequently as a very busy overachieving high school senior can. i understand this is really shitty — i am kinda sorta on a time crunch and did not gather as much data as i should have. however, i really enjoyed working on this and will try to make 1-2-3 updates a month depending on how much time i have. so, this will be less shitty
 
-i also wrote a whole thing about this [here] — what the landling is, why i made it, everything that changed in v1 and why, and how to actually use him yourself. link dropping soon!
+i also wrote a whole thing about this [here](https://open.substack.com/pub/243165/p/i-finetuned-nick-lands-x-account) — what the landling is, why i made it, everything that changed in v1 and why, and how to actually use him yourself.
 
 ## example outputs
 
