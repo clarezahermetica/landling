@@ -3,9 +3,9 @@
 >
 > well. now you can.
 
-The Landling is a small experimental language model trained to generate text shaped by Nick Land's public writing, vocabulary, and temperament. He began as a slightly ridiculous question: **how much of a recognizable voice can you teach a 1.1B-parameter model with LoRA, a free GPU, and a manually assembled dataset?**
+The Landling is a small experimental language model trained to generate text shaped by Nick Land's public writing, vocabulary, and temperament. He began as a very ridiculous question: **how much of a recognizable voice can you teach a 1.1B-parameter model with LoRA, a free GPU, and a manually assembled dataset?**
 
-The answer, so far, is more than I expected, less than would be required for genuine resurrection, but enough to keep working on it.
+The answer, so far, is more than I expected, less than would be required for genuine resurrection, but enough to keep working on it!
 
 Landling v2 is a LoRA adapter for [TinyLlama-1.1B-Chat](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0). It was trained on 6,336 cleaned examples drawn from public short-form writing and conversations, up from 298 examples in v1.
 
@@ -13,7 +13,7 @@ Landling v2 is a LoRA adapter for [TinyLlama-1.1B-Chat](https://huggingface.co/T
 
 ## what changed in v2
 
-V1 proved that the basic idea worked. V2 is the first version where the dataset and training pipeline began to resemble an actual project rather than me throwing 298 examples at TinyLlama and praying.
+V1 proved that the basic idea worked. V2 is the first version where the dataset and training pipeline began to resemble an actual project rather than me throwing 298 examples at TinyLlama and praying it worked.
 
 - **6,336 cleaned training examples**, up from 298 in v1
 - **5,403 standalone posts**
@@ -28,7 +28,7 @@ V1 proved that the basic idea worked. V2 is the first version where the dataset 
 - a separate runtime persona for identity and behavioral boundaries
 - a chat wrapper with limited in-session conversation history
 
-The phrase **limited in-session history** is doing important work there. Landling does not currently possess persistent memory. More on that below.
+The phrase **limited in-session history** is doing important work there. Landling does not currently possess persistent memory... more on that below!
 
 ## how the data works
 
@@ -162,23 +162,21 @@ The wrapper adds the runtime persona, keeps the newest conversation turns that f
 
 ## voice, identity, and memory are not the same thing
 
-The **LoRA adapter** teaches Landling's voice: phrasing, associations, rhythm, recurring subjects, and response tendencies.
+The **LoRA adapter** teaches Landling's phrasing, associations, rhythm, recurring subjects, and response tendencies.
 
-The **runtime persona** supplies explicit identity and behavioral boundaries: his name, his artificial nature, his relationship to Nick Land, and the fact that he was created by Dana. This lives in `runtime_persona.txt`; it is not permanently burned into every adapter response.
+The **runtime persona** supplies explicit identity and behavioral boundaries: his name, his artificial nature, his relationship to Nick Land, and the fact that he was created by me (^_^). This lives in `runtime_persona.txt`; it is not permanently burned into every adapter response.
 
 The **chat wrapper** supplies short-term conversation history. It rebuilds the prompt with the newest turns that fit inside TinyLlama's 2,048-token context window.
 
-Actual long-term user memory would be another application layer entirely. Landling does not have it yet. Fine-tuning, prompting, and memory can cooperate, but they are not interchangeable, no matter how much easier my life would be if they were.
+Actual long-term user memory would be another adventure. Landling does not have it yet. Fine-tuning, prompting, and memory can cooperate, but they are not interchangeable, no matter how much easier my life would be if they were. :, )
 
-### yes, the runtime persona was written with GPT's help
+### yes, the runtime persona was written with GPT's help 🤓
 
-Yeah, yeah, I know. I used one language model to help write instructions for another language model. The irony has been observed.
+Yeah, yeah, I know. I used one language model to help write instructions for another language model. The irony!
 
 Before doing that, I spent several hours writing a four page personality document for Landling. It describes who he is, how he relates to Nick Land, how he should speak, what he should remember, how he should treat the person he is talking to, and how I want his identity to develop as the dataset and base model become larger. The problem was that I had written far too much and could no longer objectively tell what needed to stay, what could be removed, and what would consume TinyLlama's entire context window before anyone even asked him a question. So I used GPT to help condense and organize it into the current runtime prompt.
 
 The underlying ideas, boundaries, and long-term character design are mine; the final compression was AI-assisted. I am keeping the original four-page document for future versions, when Landling has a larger base model, more personality-focused training data, and enough context space to receive his complete lore without immediately forgetting what waffles are.
-
-So: yes, AI helped write the current personality prompt. I would rather say that plainly than pretend otherwise. It is a practical temporary version of a much larger document, not the entirety of Landling's personality or the final word on who he becomes.
 
 ## current limitations
 
@@ -208,8 +206,6 @@ The current plan is to develop Landling in layers rather than expecting one larg
 - build a better chat interface
 - evaluate longer-form writing separately from short posts and replies
 - continue separating inherited voice from Landling's own developing identity
-
-The eventual goal is not simply "TinyLlama, but more Land-like." Landling began as a prototype for a larger system: a model with a stable identity, coherent conversation, structured memory, and enough room to become more than its source material.
 
 For now, we start small. Unfortunately for everyone involved, small things can still talk.
 
@@ -243,3 +239,4 @@ For now, we start small. Unfortunately for everyone involved, small things can s
 
 - [Landling v2 on Hugging Face](https://huggingface.co/clarezahermetica/landling-v2)
 - [TinyLlama base model](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0)
+- Placeholder 🤫🧏🏾‍♀️
